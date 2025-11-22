@@ -12,11 +12,9 @@ $pass = "";
 $db   = "growright_db";
 
 $conn = new mysqli($host, $user, $pass, $db);
-
 if ($conn->connect_error) {
   die("Database Connection Failed: " . $conn->connect_error);
 }
-
 
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT * FROM profiles WHERE user_id = ?";
