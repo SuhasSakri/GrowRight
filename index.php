@@ -29,17 +29,183 @@
       </div>
     </header>
     <section class="page active" id="Home">
-      <img src="./images/4.png" alt="IMAGE"/>
+    <section class="main-section">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <h1 class="hero-title">Get Strong &amp; <span>Healthy!</span></h1>
+          <p class="hero-sub">
+            Join the fun adventure of eating right and staying active! 
+            <span class="spark">✨</span>
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn primary" href="login.php">Start Your Journey! 🚀</a>
+            <a href="#about" class="btn ghost nav_link">Learn More 📚</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="img-card">
+            <img
+              src="./images/4.png"
+              alt="kid running"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+    .main-section {
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      padding: 210px 24px 100px 24px;
+      background: linear-gradient(135deg, #1b5e20 0%, #66bb6a 100%);
+      color: #ffffff;
+      border-radius: 18px;
+      margin: 0 16px 16px 16px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
+      align-items: center;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero-left { padding-right: 16px; }
+
+    .hero-title {
+      font-size: clamp(34px, 6vw, 72px);
+      line-height: 0.95;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span { display: block; }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.9);
+      font-size: 18px;
+     margin-bottom: 22px;
+     max-width: 540px;
+    }
+
+    .spark { margin-left: 6px; }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn.primary {
+      background: rgba(255,255,255,0.95);
+      color: #ff6a00;
+      padding: 12px 22px;
+      border-radius: 36px;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn.ghost {
+      background: linear-gradient(90deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+      border: none;
+      color: white;
+      backdrop-filter: blur(4px);
+      padding: 12px 22px;
+      border-radius: 36px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+    }
+
+    .img-card {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 18px;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+    }
+
+    .img-card img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: contain;
+   }
+
+    .main-section::after {
+      content: '★';
+      font-size: 28px;
+      position: absolute;
+      transform: translateY(120px);
+      opacity: 0.08;
+      color: white;
+      pointer-events: none;
+    }
+
+@media (max-width: 960px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .hero-right {
+    order: -1;
+    justify-content: flex-end;
+  }
+  .img-card {
+    max-width: 300px;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 520px) {
+  .main-section {
+    padding: 120px 16px 28px 16px;
+    border-radius: 14px;
+  }
+  .hero-sub { font-size: 15px; }
+  .btn.primary, .btn.ghost {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}
+.hero {
+  margin-top: 0px;
+}
+</style>
       <section class="hero">
-        
+       
         <h2>Fitness and nutrition for Kids</h2>
         <p>
           GrowRight personalizes routines and daily intake by age group. Users
           have full control over who can view their details and can grant
           specialists secure access.
         </p>
-        <button class="btn btn-fill">Get started</button>
-        <button class="btn btn-outline">Learn about privacy</button>
+        <!-- <a href="login.php" class="btn btn-fill">Get started</a>
+        <a href="#privacy" class="btn btn-outline">Learn about privacy</a> -->
 
         <div class="info-boxes">
           <div class="info-box">
@@ -77,7 +243,7 @@
               <li>Rainbow snacks</li>
               <li>Parent oversight</li>
             </ul>
-            <button class="explore">Explore plans</button>
+            <!-- <button class="explore">Explore plans</button> -->
           </div>
           <div class="card">
             <h3>Power Players</h3>
@@ -87,7 +253,7 @@
               <li>Meal plans by goal</li>
               <li>Hydration goals</li>
             </ul>
-            <button class="explore">Explore plans</button>
+            <!-- <button class="explore">Explore plans</button> -->
           </div>
           <div class="card senior">
             <h3>Future Champs</h3>
@@ -97,7 +263,7 @@
               <li>Smart swaps</li>
               <li>Confidence</li>
             </ul>
-            <button class="explore">Explore plans</button>
+            <!-- <button class="explore">Explore plans</button> -->
           </div>
         </div>
       </section>
