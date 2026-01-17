@@ -138,21 +138,9 @@ if ($profile && $userAge !== null) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body { 
-      background: linear-gradient(135deg, #A7EBF2 0%, #54ACBF 25%, #26658C 50%, #023859 75%, #011C40 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
+      background: #f8f9fa;
       min-height: 100vh;
       position: relative;
-    }
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255,255,255,0.92);
-      z-index: -1;
     }
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
@@ -644,7 +632,12 @@ if ($profile && $userAge !== null) {
 }
 
 .modal {
-  z-index: 1050 !important;
+  background: transparent !important;
+  pointer-events: none !important;
+}
+
+.modal.show {
+  background: rgba(0,0,0,0.5) !important;
   pointer-events: auto !important;
 }
 
@@ -654,6 +647,11 @@ if ($profile && $userAge !== null) {
 
 #aiChatWidget {
   z-index: 10000 !important;
+}
+
+body.modal-open {
+  overflow: auto !important;
+  padding-right: 0 !important;
 }
 
 
@@ -861,7 +859,7 @@ $_SESSION['achievements'] = $achievements;
     <div id="activityList" class="list-group enhanced-list" style="position: relative; z-index: 100;"></div>
   </div>
 
-  <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content info-modal shadow-lg border-0">
         <div class="modal-header modal-header-custom">
@@ -1122,6 +1120,19 @@ if ($showWaterReminder):
 
   <script>
     const userAge = <?= json_encode($userAge); ?>;
+    
+    // Aggressively remove modal backdrops
+    function removeBackdrops() {
+      document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+      document.body.classList.remove('modal-open');
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }
+    
+    removeBackdrops();
+    document.addEventListener('DOMContentLoaded', removeBackdrops);
+    window.addEventListener('load', removeBackdrops);
+    setInterval(removeBackdrops, 100);
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

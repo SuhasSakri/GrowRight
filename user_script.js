@@ -16,7 +16,10 @@ document.addEventListener("DOMContentLoaded", function() {
   const activityPage = document.getElementById("activityPage");
   const activityTitle = document.getElementById("activityTitle");
   const activityList = document.getElementById("activityList");
-  const modal = new bootstrap.Modal(document.getElementById("infoModal"));
+  const modal = new bootstrap.Modal(document.getElementById("infoModal"), {
+    backdrop: false,
+    keyboard: true
+  });
 
   const age = userAge;
 
